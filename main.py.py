@@ -3,7 +3,6 @@ import time
 import random
 import cv2
 from PIL import Image
-from screen_search import *
 from random import randint
 from spells import check_avalible_spells
 pyautogui.FAILSAFE = False

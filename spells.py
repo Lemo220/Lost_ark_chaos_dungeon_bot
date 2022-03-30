@@ -1,7 +1,5 @@
 import pyautogui
-from screen_search import *
 from mss import mss
-from PIL import Image
 spells = ["a", "d", "f", "w", "q", "e"]
 
 spells_region = (616,977,891,1070)
