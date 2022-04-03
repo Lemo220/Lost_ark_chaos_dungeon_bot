@@ -135,14 +135,12 @@ class Lost_bot():
     def cast_spell(self, spells):  ##check spells and cast first avalible
         hold_time = 0.2
         if self.TOO_FAR != True:
-            print("dostepne spelle",self.available_spells)
             if self.available_spells == []:
                 self.available_spells = self.check_available_spell(spells)
                 for _ in range(0,10):
                     pyautogui.click()
                     self.waitRandomizedTime(0.2,0.3)
             elif self.available_spells != []:
-                print('wybieram jeden ze spelli')
                 cast = self.available_spells[randint(0,len(self.available_spells)-1)]
                 for i in self.duration:
                     if cast in i:
@@ -151,8 +149,6 @@ class Lost_bot():
                 self.waitRandomizedTime(hold_time*0.8,hold_time)
                 pyautogui.keyUp(cast)
                 self.available_spells.remove(cast)
-            else:
-                print('axe axe axe')
 
 
         self.CAST = False
@@ -175,7 +171,6 @@ class Lost_bot():
             try:
                 res_cords = pyautogui.locateOnScreen("images\\base_res.png", confidence = 0.99)
                 pyautogui.moveTo(res_cords[0],res_cords[1])
-                print("resss")
                 self.waitRandomizedTime(1,2)
                 pyautogui.click()
             except:
