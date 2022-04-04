@@ -2,7 +2,7 @@ import pyautogui, time, random, cv2, math, keyboard, os, pygetwindow as gw, nump
 from PIL import Image
 from random import randint
 from config import spells_regions
-from mss import mss
+import mss
 from threading import Thread
 pyautogui.FAILSAFE = False
 
@@ -58,15 +58,16 @@ class Lost_bot():
     def check_available_spell(self, all_spells):  # check region what spells are available
         self.available_spells = []
         for spell in all_spells:
-            x = mss().grab((spells_regions[0][spell]))
-            img = list(Image.Image.getdata(Image.frombytes("RGB", x.size, x.bgra, "raw", "BGRX")))
-            if img == list(Image.Image.getdata(Image.open("images\\" + str(spell) + ".png"))):
-                self.available_spells.append(spell)
+            with mss.mss() as sct:
+                x = sct.grab((spells_regions[0][spell]))
+                img = list(Image.Image.getdata(Image.frombytes("RGB", x.size, x.bgra, "raw", "BGRX")))
+                if img == list(Image.Image.getdata(Image.open("images\\" + str(spell) + ".png"))):
+                    self.available_spells.append(spell)
         print("available spells", self.available_spells)
         return self.available_spells
 
     def find_pos(self, minimap_path, target, method, game_window):
-        with mss() as sct:
+        with mss.mss() as sct:
                     x = sct.grab(regions["region_minimap"])
                     img = Image.frombytes("RGB", x.size, x.bgra, "raw", "BGRX")  # Convert to PIL.Image
                     img.save(minimap_path, 'PNG')
