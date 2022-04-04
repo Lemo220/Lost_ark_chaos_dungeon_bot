@@ -1,5 +1,6 @@
-from mss import mss
+import mss
 from PIL import Image
+import pygetwindow as gw
 
 spells_regions = {"q" : (685,982,715,1013), 
                     "w" : (735, 982, 765,1013), 
@@ -12,7 +13,9 @@ spells_regions = {"q" : (685,982,715,1013),
                      "z" : (947, 1013,969, 1036)
                      },
 
+Lost_ark = gw.getWindowsWithTitle('LOST ARK')[0]
 
+print(Lost_ark)
 def configure_config():
     hold_spells = []
     print()
@@ -36,12 +39,17 @@ def configure_config():
     line2 = " ".join(map(str,hold_spells))
     line3 = "song of escape: " + song_of_escape
     f.write(line1 + "\n" + "spell/time(s): "+ line2 + "\n" + line3)
+    Lost_ark.minimize()
+    Lost_ark.restore()
+    Lost_ark.resizeTo(1920,1080)
+    Lost_ark.moveTo(0,0)
 
 
     for spell in spells_input:
         print(spell)
-        x = mss().grab((spells_regions[0][spell]))
-        img = Image.frombytes("RGB", x.size, x.bgra, "raw", "BGRX")
-        img.save("images\\" + spell + ".png")
+        with mss.mss() as sct:
+            x = sct.grab((spells_regions[0][spell]))
+            img = Image.frombytes("RGB", x.size, x.bgra, "raw", "BGRX")
+            img.save("images\\" + spell + ".png")
 if __name__ == '__main__':
     configure_config()
