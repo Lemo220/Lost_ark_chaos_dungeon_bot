@@ -5,13 +5,13 @@ from config import spells_regions
 import mss
 from threading import Thread
 pyautogui.FAILSAFE = False
+import threading
 
 
 class Lost_bot():
 
     # propeties
     IN_CITY = True
-    IN_CHAOS = True
     MOVE = False
     CAST = False
     BOT_WORKING = False
@@ -151,9 +151,6 @@ class Lost_bot():
                 pyautogui.keyUp(cast)
                 self.available_spells.remove(cast)
 
-
-        self.CAST = False
-
     def exit(self, region_result,region_check_if_ok, song_of_escape): ## exit from dungeon if finish
         if pyautogui.locateOnScreen('images\\results.png', confidence = 0.8, region = region_result) != None:
             while True:
@@ -162,6 +159,7 @@ class Lost_bot():
                 time.sleep(randint(8,10))
                 if pyautogui.locateOnScreen("images\\ok2.png", confidence = 0.9, region = region_check_if_ok) == None:
                     self.MOVE = False
+                    self.IN_CITY = True
                     break
             return True
         else:
@@ -227,8 +225,8 @@ class Lost_bot():
             self.check_res()
             self.IN_CITY = self.exit(regions["region_results"], regions["region_check_ok"],  self.song_of_escape)
             if pyautogui.locateOnScreen("images\\ccept.jpg", confidence = 0.95, region = regions["region_check_accept"]) != None:
-                
                 self.click_accept(regions["region_check_accept"])
+            print("checkpoint7")
 
 def kill_bot():
     while True:
