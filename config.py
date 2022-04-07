@@ -1,6 +1,6 @@
+import mss
+from PIL import Image
 import pygetwindow as gw
-from window_capture import WindowCapture
-import cv2
 
 spells_regions = {"q" : (685,982,715,1013), 
                     "w" : (735, 982, 765,1013), 
@@ -12,7 +12,10 @@ spells_regions = {"q" : (685,982,715,1013),
                      "f" : (857, 1030, 892, 1060),
                      "z" : (947, 1013,969, 1036)
                      },
-                     
+
+Lost_ark = gw.getWindowsWithTitle('LOST ARK')[0]
+
+print(Lost_ark)
 def configure_config():
     hold_spells = []
     print()
@@ -27,25 +30,26 @@ def configure_config():
     spells_input = input("""What spells do you want to use? (example: qwesd) \nAvailable spells: qwerasdf\n""")
     hold_spells_input = input("""Which of these spells has to be hold?\n""")
     for spell_duration_hold in hold_spells_input:
-        duration = input("""How long hold spell """ + spell_duration_hold + "? (in seconds)\n")
+        duration = input("""How long hold spell """ + spell_duration_hold + "? (in seconds, must be integer)\n")
         hold_spells.append(spell_duration_hold + duration)
 
     song_of_escape = input("At which slot (5-9) do you have song of escape? (Need it to leave dungeon)\n")
-    repair = input("Do you want repair system? Y/N (You need to have Crystalline Aura active)\n")
     f = open("config.txt", "w")
     line1 = "spells = " + spells_input
     line2 = " ".join(map(str,hold_spells))
     line3 = "song of escape: " + song_of_escape
-    line4 = "repair: " + repair
-    f.write(line1 + "\n" + "spell/time(s): "+ line2 + "\n" + line3 + "\n" + line4)
-    WindowCapture("LOST ARK (64-bit, DX11) v.2.1.1.4").focus_window()
+    f.write(line1 + "\n" + "spell/time(s): "+ line2 + "\n" + line3)
+    Lost_ark.minimize()
+    Lost_ark.restore()
+    Lost_ark.resizeTo(1920,1080)
+    Lost_ark.moveTo(0,0)
+
 
     for spell in spells_input:
         print(spell)
-        screenshot = WindowCapture("LOST ARK (64-bit, DX11) v.2.1.1.4").get_screenshot()
-        pos = spells_regions[0][spell]
-        screenshot = screenshot[pos[1]:pos[3], pos[0]:pos[2]]
-        cv2.imwrite(("images\\" + spell + ".png"), screenshot)
-        
+        with mss.mss() as sct:
+            x = sct.grab((spells_regions[0][spell]))
+            img = Image.frombytes("RGB", x.size, x.bgra, "raw", "BGRX")
+            img.save("images\\" + spell + ".png")
 if __name__ == '__main__':
     configure_config()
