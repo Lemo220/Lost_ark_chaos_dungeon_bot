@@ -16,7 +16,7 @@ spells_regions = {"q" : (685,982,715,1013),
 def configure_config():
     hold_spells = []
     print()
-    print("Hey, thank you for downloading and enjoy!\nRemember, bot use mouse and keyboard so you can't do anything on computer when it's working.\nIf you want to stop him just hold 'ESC' for 1-2 seconds.")
+    print("Hey, thank you for downloading and enjoy!\nRemember, bot use mouse and keyboard so you can't do anything on computer when it's working.\nIf you want to stop him just hold 'DEL' for 1-2 seconds.")
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     print("!!!! IMPORTANT !!!!")
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
