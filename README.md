@@ -1,3 +1,6 @@
+UPDATE!
+After few bot providers stole my script and sold is as theirs, I decided to finish it and sell it for low price (10$ for now - available 24h test keys). Now it has solo mode, healing system, repair, res, faster spells, faster movement etc. If you are interested, catch me on Discord. My nick is Lemo#7004, or join my channel https://discord.com/invite/QDPTrPwbs4.
+
 Lost ark bot to farm chaos dungeons.
 
 Just run main.py and decide if you want configure or start. To configure you need to stay not in a big city (need to have available cast spells) to let bot get screens of your spells. After that, just run main.py and let the magic work! You need to have "Song of Escape" on your hotkeys to let the bot get out of the dungeon.
