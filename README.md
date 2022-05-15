@@ -1,5 +1,5 @@
 UPDATE!
-After few bot providers stole my script and sold is as theirs, I decided to finish it and sell it for low price (10$ for now - available 24h test keys). Now it has solo mode, healing system, repair, res, faster spells, faster movement etc. If you are interested, catch me on Discord. My nick is Lemo#7004, or join my channel https://discord.com/invite/QDPTrPwbs4.
+After few bot providers stole my script and sold is as theirs, I decided to finish it and sell it for low price (20$ only). Now it has solo mode, healing system, repair, res, faster spells, faster movement etc. If you are interested, catch me on Discord. My nick is Lemo#7004, or join my channel https://discord.com/invite/QDPTrPwbs4.
 
 Lost ark bot to farm chaos dungeons.
 
