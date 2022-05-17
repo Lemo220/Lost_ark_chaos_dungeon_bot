@@ -1,4 +1,4 @@
-spells = qwerasdfz
-spell/time(s): d3,5
-song of escape: 8
+spells = qwerasdf
+spell/time(s): w3 r3 s3 f3 a3
+song of escape: 6
 repair: y

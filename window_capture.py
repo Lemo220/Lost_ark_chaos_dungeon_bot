@@ -1,5 +1,5 @@
 import numpy as np, win32gui, win32ui, win32con, win32com.client
-
+from PIL import Image
 
 class WindowCapture:
 
@@ -12,7 +12,8 @@ class WindowCapture:
     offset_x = 0
     offset_y = 0
 
-    # constructor
+
+            # constructor
     def __init__(self, window_name):
         # find the handle for the window we want to capture
         self.hwnd = win32gui.FindWindow(None, window_name)
@@ -51,11 +52,13 @@ class WindowCapture:
         #dataBitMap.SaveBitmapFile(cDC, 'debug.bmp')
         signedIntsArray = dataBitMap.GetBitmapBits(True)
         img = np.fromstring(signedIntsArray, dtype='uint8')
+
         img.shape = (self.h, self.w, 4)
 
         # free resources
         dcObj.DeleteDC()
         cDC.DeleteDC()
+        # print('SS test dz',self.hwnd)
         win32gui.ReleaseDC(self.hwnd, wDC)
         win32gui.DeleteObject(dataBitMap.GetHandle())
 

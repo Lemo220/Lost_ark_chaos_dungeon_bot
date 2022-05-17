@@ -14,6 +14,7 @@ spells_regions = {"q" : (685,982,715,1013),
                      },
                      
 def configure_config():
+
     hold_spells = []
     print()
     print("Hey, thank you for downloading and enjoy!\nRemember, bot use mouse and keyboard so you can't do anything on computer when it's working.\nIf you want to stop him just hold 'DEL' for 1-2 seconds.")
@@ -38,11 +39,11 @@ def configure_config():
     line3 = "song of escape: " + song_of_escape
     line4 = "repair: " + repair
     f.write(line1 + "\n" + "spell/time(s): "+ line2 + "\n" + line3 + "\n" + line4)
-    WindowCapture("LOST ARK (64-bit, DX11) v.2.1.1.4").focus_window()
+    WindowCapture("LOST ARK (64-bit, DX11) v.2.2.4.1").focus_window()
 
     for spell in spells_input:
         print(spell)
-        screenshot = WindowCapture("LOST ARK (64-bit, DX11) v.2.1.1.4").get_screenshot()
+        screenshot = WindowCapture("LOST ARK (64-bit, DX11) v.2.2.4.1").get_screenshot()
         pos = spells_regions[0][spell]
         screenshot = screenshot[pos[1]:pos[3], pos[0]:pos[2]]
         cv2.imwrite(("images\\" + spell + ".png"), screenshot)
