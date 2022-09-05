@@ -1,3 +1,6 @@
+If you like my job and want help me, you can buy me a coffee! 
+https://www.buymeacoffee.com/piterek220O
+
 UPDATE!
 After few bot providers stole my script and sold is as theirs, I decided to finish it and sell it for low price (20$ only). Now it has solo mode, healing system, repair, res, faster spells, faster movement etc. If you are interested, catch me on Discord. My nick is Lemo#7004, or join my channel https://discord.com/invite/QDPTrPwbs4.
 
