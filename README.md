@@ -17,6 +17,6 @@ Bot work for every class in-game but first is needed to configure spells etc.
 If you have any questions or ideas on how to improve the bot, just write to me on GitHub in the Issues tab!
 
 
-I was inspired by @learncodebygaming and his tutorial from YouTube 
+I was inspired by @learncodebygaming (also took his screen capturing system for my bot) and his tutorial from YouTube 
 https://www.youtube.com/watch?v=KecMlLUuiE4&t=3s
 Highly recommend it for everyone!
